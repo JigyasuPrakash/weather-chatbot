@@ -28,7 +28,13 @@ app.post('/webhook', (req, res) => {
             return res.json(resObj);
         })
         .catch((err) => {
-            console.error("Somthing went wrong", err);
+            const result = `Somthing went wrong in fetching result please try again later`
+            const resObj = {
+                fulfillmentText: result,
+                fulfillmentMessages: [{ "text": { "text": [result] } }],
+                source: "OpenWeather"
+            }
+            return res.json(resObj);
         })
 })
 
