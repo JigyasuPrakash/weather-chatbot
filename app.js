@@ -21,7 +21,7 @@ app.post('/webhook', (req, res) => {
         .then((response) => {
             const result = `Right now in ${city} it feels ${response.data.weather[0].description} with a temperature of ${response.data.main.temp - 273.15} degree Celsius.`
             const resObj = {
-                fulfillmentText: " ",
+                fulfillmentText: result,
                 fulfillmentMessages: [{ "text": { "text": [result] } }],
                 source: "OpenWeather"
             }
